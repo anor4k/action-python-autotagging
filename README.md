@@ -13,7 +13,10 @@ name: Python 🐍 Auto Version Tag
 
 on:
   push:
-    branches: [master]
+    branches:
+      - main
+    paths:
+      - 'src/your_package/__init__.py'
 
 jobs:
   tag:
@@ -22,34 +25,34 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Version tag
-        uses: samamorgan/action-autotag-python@master
+        uses: Jorricks/action-autotag-python@master
 
         with:
-          path: package/__version__.py
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: src/your_package/__init__.py
           variable: __version__
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          prefix: v
 ```
 
 ### Inputs
 
-| Input               | Description                                  |
-| ------------------- | -------------------------------------------- |
-| path                | Path to version file                         |
-| variable            | Variable name containing version information |
-| prefix _(optional)_ | Prefix to add to the version tag             |
-| suffix _(optional)_ | Suffix to add to the version tag             |
+| Input    | Required | Description                                  |
+| -------- | -------- | -------------------------------------------- |
+| token    | Required | Github token to create the tag               |
+| path     | Required | Path to version file                         |
+| variable | Required | Variable name containing version information |
+| prefix   | Optional | Prefix to add to the version tag             |
+| suffix   | Optional | Suffix to add to the version tag             |
 
 ## Configuration
 
-The `GITHUB_TOKEN` must be passed in. Without this, it is not possible to create a new tag. Make sure the autotag action looks like the following example:
+The `GITHUB_TOKEN` must be passed in. You don't need to setup anything for this variable, it will automatically be created. The only thing you need to make sure of is that you have your `Workflow permissions` set to the standard value of `Read and write permissions`, or, that you define the permissions in the workflow as [mentioned here](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs).
 
 ```yaml
-- uses: samamorgan/action-autotag-python@master
+- uses: Jorricks/action-autotag-python@master
   with:
     path: package/__version__.py
     variable: __version__
     github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-The action will automatically extract the token at runtime. **DO NOT MANUALLY ENTER YOUR TOKEN.** If you put the actual token in your workflow file, you'll make it accessible (in plaintext) to anyone who ever views the repository (it will be in your git history).
+**DO NOT MANUALLY ENTER YOUR TOKEN.** If you put the actual token in your workflow file, you'll make it accessible (in plaintext) to anyone who ever views the repository (it will be in your git history).
