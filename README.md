@@ -1,7 +1,6 @@
-# Updated 2022-07-22 -> Fully working :)
+# 🐍 Python Auto Tagging
 
-# Python Container Action Template
-
+Note: Credits go to @samamorgan for creating the first version.
 This action will read a python version file and compare the version variable to the project's known tags. If a corresponding tag does not exist, it will be created.
 
 ## Usage
@@ -11,7 +10,7 @@ The following is an example `.github/workflows/main.yml` that will execute when 
 ### Example workflow
 
 ```yaml
-name: Python 🐍 Auto Version Tag
+name: 🐍 Auto Version Tag
 
 on:
   push:
