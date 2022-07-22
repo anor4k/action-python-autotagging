@@ -5,6 +5,9 @@ branding:
   icon: tag
   color: blue
 inputs:
+  token:
+    description: Github Token
+    required: true
   path:
     description: Path to version file
     required: true
