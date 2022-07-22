@@ -16,7 +16,8 @@ def main():
                 raise ValueError(f"Found multiple lines starting with '{variable}'.")
             exec(line_assigning_the_variable[0], about)
         # If you compute the version, you should use this.
-        exec(f.read(), about)
+        else:
+            exec(f.read(), about)
 
     prefix, suffix = os.environ["INPUT_PREFIX"], os.environ["INPUT_SUFFIX"]
     version_tag = f"{prefix}{about[variable]}{suffix}"
