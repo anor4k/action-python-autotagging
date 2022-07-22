@@ -1,6 +1,6 @@
-name: Python Auto Version Tag
+name: 🐍 Python Auto Tagging
 description: Automatically generate new tags when version file changes
-author: Sam Morgan
+author: Sam Morgan & Jorrick Sleijster
 branding:
   icon: tag
   color: blue
