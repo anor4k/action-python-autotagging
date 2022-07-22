@@ -35,6 +35,7 @@ def main():
 
     sha = repo.get_commits()[0].sha
     repo.create_git_ref(f"refs/tags/{version_tag}", sha)
+    print(f"Created tag {version_tag}.")
 
 
 if __name__ == "__main__":
