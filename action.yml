@@ -20,6 +20,10 @@ inputs:
   suffix:
     description: Suffix to add to the version tag
     required: false
+  execute_entire_path:
+    description: Execute entire path(1) or just the line starting with the variable name(0). Values can be 0 or 1.
+    required: false
+    default: '0'
 outputs:
   version:
     description: The version defined in the version file

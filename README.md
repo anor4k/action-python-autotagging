@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Version tag
-        uses: Jorricks/action-autotag-python@master
+        uses: Jorricks/action-python-autotagging@1.0.1
 
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -36,20 +36,23 @@ jobs:
 
 ### Inputs
 
-| Input    | Required | Description                                  |
-| -------- | -------- | -------------------------------------------- |
-| token    | Required | Github token to create the tag               |
-| path     | Required | Path to version file                         |
-| variable | Required | Variable name containing version information |
-| prefix   | Optional | Prefix to add to the version tag             |
-| suffix   | Optional | Suffix to add to the version tag             |
+| Input               | Required | Description                                                                     |
+|---------------------|----------|---------------------------------------------------------------------------------|
+| token               | Required | Github token to create the tag                                                  |
+| path                | Required | Path to version file                                                            |
+| variable            | Required | Variable name containing version information                                    |
+| prefix              | Optional | Prefix to add to the version tag                                                |
+| suffix              | Optional | Suffix to add to the version tag                                                |
+| execute_entire_path | Optional | Whether to execute the entire file or just the list that starts with 'variable' |
+
+By default `execute_entire_path=0`. This is perfect for when you define your variable with a simple `__version__==0.0.0`. However, if you compute your version inside the file, you should set `execute_entire_path=1` and make sure you installed any possible imports.
 
 ## Configuration
 
 The `GITHUB_TOKEN` must be passed in. You don't need to setup anything for this variable, it will automatically be created. The only thing you need to make sure of is that you have your `Workflow permissions` set to the standard value of `Read and write permissions`, or, that you define the permissions in the workflow as [mentioned here](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs).
 
 ```yaml
-- uses: Jorricks/action-autotag-python@master
+- uses: Jorricks/action-python-autotagging@1.0.0
   with:
     path: package/__version__.py
     variable: __version__
