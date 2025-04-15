@@ -1,6 +1,6 @@
-name: 🐍 Python Auto Tagging
+name: 🐍 Python Auto Tag Versioning
 description: Automatically generate new tags when version file changes
-author: Sam Morgan & Jorrick Sleijster
+author: Noel <noel@anorak.dev>
 branding:
   icon: tag
   color: blue
