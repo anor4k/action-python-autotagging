@@ -17,7 +17,7 @@ on:
     branches:
       - main
     paths:
-      - 'src/your_package/__init__.py'
+      - "src/your_package/__init__.py"
 
 jobs:
   tag:
@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Version tag
-        uses: Jorricks/action-python-autotagging@1.0.1
+        uses: anor4k/action-python-autotagging@1.0.0
 
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -37,7 +37,7 @@ jobs:
 ### Inputs
 
 | Input               | Required | Description                                                                     |
-|---------------------|----------|---------------------------------------------------------------------------------|
+| ------------------- | -------- | ------------------------------------------------------------------------------- |
 | token               | Required | Github token to create the tag                                                  |
 | path                | Required | Path to version file                                                            |
 | variable            | Required | Variable name containing version information                                    |
@@ -52,7 +52,7 @@ By default `execute_entire_path=0`. This is perfect for when you define your var
 The `GITHUB_TOKEN` must be passed in. You don't need to setup anything for this variable, it will automatically be created. The only thing you need to make sure of is that you have your `Workflow permissions` set to the standard value of `Read and write permissions`, or, that you define the permissions in the workflow as [mentioned here](https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs).
 
 ```yaml
-- uses: Jorricks/action-python-autotagging@1.0.1
+- uses: anor4k/action-python-autotagging@1.0.1
   with:
     path: package/__version__.py
     variable: __version__

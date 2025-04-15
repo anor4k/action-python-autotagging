@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.10-slim-buster
+FROM python:3.12-slim-buster
 
-LABEL "maintainer" "Jorrick Sleijster <jorrick3@gmail.com>"
-LABEL "repository" "https://github.com/Jorricks/action-autotag-python"
-LABEL "homepage" "https://github.com/Jorricks/action-autotag-python"
+LABEL "maintainer" "Noel <noel@anorak.dev>"
+LABEL "repository" "https://github.com/anor4k/action-python-autotagging"
+LABEL "homepage" "https://github.com/anor4k/action-python-autotagging"
 
 
 ENV PYTHONDONTWRITEBYTECODE 1
