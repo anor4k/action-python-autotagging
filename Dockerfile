@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.12-slim-buster
+FROM python:3.12-slim-bullseye
 
 LABEL "maintainer" "Noel <noel@anorak.dev>"
 LABEL "repository" "https://github.com/anor4k/action-python-autotagging"
